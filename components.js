@@ -1,28 +1,29 @@
 /**
  * components.js
- * Laadt header.html en footer.html dynamisch in elke pagina.
+ * Laadt components/header.html en components/footer.html
+ * dynamisch in elke pagina.
  * Gebruik: loadComponents('index' | 'diensten' | 'contact')
  */
 async function loadComponents(activePage) {
 
     // ── Laad header ──────────────────────────────────────────
     try {
-        const hRes = await fetch('header.html');
+        const hRes = await fetch('components/header.html');
         const hHTML = await hRes.text();
         document.getElementById('header-placeholder').innerHTML = hHTML;
         setActiveNav(activePage);
         initHeader();
     } catch (e) {
-        console.error('Kon header.html niet laden:', e);
+        console.error('Kon components/header.html niet laden:', e);
     }
 
     // ── Laad footer ──────────────────────────────────────────
     try {
-        const fRes = await fetch('footer.html');
+        const fRes = await fetch('components/footer.html');
         const fHTML = await fRes.text();
         document.getElementById('footer-placeholder').innerHTML = fHTML;
     } catch (e) {
-        console.error('Kon footer.html niet laden:', e);
+        console.error('Kon components/footer.html niet laden:', e);
     }
 
     // ── Scroll reveal initialiseren ──────────────────────────
