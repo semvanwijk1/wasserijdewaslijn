@@ -3,64 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onze Diensten | Wassen, Strijken & Bedrijfskleding - De Waslijn</title>
-    <meta name="description" content="Bekijk de diensten van Wasserij de Waslijn: van kleding wassen en strijken tot bedrijfskleding en het herstellen van antiek wasgoed.">
+    <title>Diensten | Wasserij de Waslijn Maassluis</title>
+    <meta name="description" content="Bekijk de diensten van Wasserij de Waslijn: wassen, strijken, bedrijfskleding en antiek textiel. Wagenstraat 21, Maassluis.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- PLAK HIER HEADER.HTML COMPONENT -->
-    <header>
-        <a href="index.html">
-            <img src="assets/logo.png" alt="Wasserij de Waslijn Logo" class="logo">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="diensten.html" style="color: var(--primary-blue);">Diensten</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="lang-flag">🇳🇱</li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main>
-        <section>
-            <h1 style="text-align: center; margin-bottom: 40px;">Onze Professionele Diensten</h1>
-            
-            <div class="services-grid">
-                <!-- Dienst 1 -->
-                <div class="service-card">
-                    <h2>Wassen & Strijken</h2>
-                    <p>Uw dagelijkse kleding is bij ons in vertrouwde handen. Wij wassen met zorgvuldig geselecteerde middelen. Het resultaat? Uw kleding komt niet alleen fris, maar ook <strong>perfect gestreken</strong> weer bij u terug.</p>
-                </div>
 
-                <!-- Dienst 2 -->
-                <div class="service-card">
-                    <h2>Bedrijfskleding</h2>
-                    <p>Voor ondernemers in Maassluis verzorgen wij de reiniging van overalls, koksbuizen, uniformen en representatieve kleding. Wij zorgen dat uw team er altijd representatief uitziet.</p>
-                </div>
-
-                <!-- Dienst 3 -->
-                <div class="service-card">
-                    <h2>Speciale Was & Antiek</h2>
-                    <p>Heeft u vergeelde antieke lakens of erfstukken? Wij zijn specialisten in het <strong>stralend wit krijgen</strong> van oud textiel. Daarnaast kunnen wij uw lakens en tafellinnen nog op authentieke wijze <strong>stijven</strong>.</p>
-                </div>
+        <!-- ── PAGE HERO ── -->
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <div class="chip">Wat wij voor u doen</div>
+                <h1 class="heading-xl">Onze professionele<br>diensten</h1>
+                <p class="subtext">Van dagelijkse kleding tot bijzonder antiek textiel — wij behandelen alles met dezelfde vakkennis en zorg.</p>
             </div>
-            
-            <div style="margin-top: 50px; background-color: var(--light-blue); padding: 40px; border-radius: 10px; text-align: center;">
-                <h2>Maatwerk nodig?</h2>
-                <p>Heeft u een specifieke vraag of een groot volume aan wasgoed? Neem contact met ons op voor een passende oplossing.</p>
-                <br>
-                <a href="contact.html" class="btn">Vraag een offerte aan</a>
+        </div>
+
+        <!-- ── DIENSTEN ── -->
+        <section class="section">
+            <div class="services-grid reveal-stagger">
+
+                <div class="scard">
+                    <div class="scard-icon-wrap">
+                        <span class="scard-icon">👔</span>
+                    </div>
+                    <h2>Wassen & Strijken</h2>
+                    <p>Uw dagelijkse kleding is bij ons in vertrouwde handen. Wij wassen met zorgvuldig geselecteerde middelen. Het resultaat? Uw kleding komt niet alleen fris, maar ook <strong>perfect gestreken</strong> terug.</p>
+                    <span class="scard-tag">Dagelijks · Snel · Zorgvuldig</span>
+                </div>
+
+                <div class="scard">
+                    <div class="scard-icon-wrap">
+                        <span class="scard-icon">🧥</span>
+                    </div>
+                    <h2>Bedrijfskleding</h2>
+                    <p>Voor ondernemers in Maassluis verzorgen wij de reiniging van overalls, koksbuizen, uniformen en representatieve kleding. Uw team ziet er altijd <strong>professioneel en verzorgd</strong> uit.</p>
+                    <span class="scard-tag">Maatwerk · Volumes · Betrouwbaar</span>
+                </div>
+
+                <div class="scard">
+                    <div class="scard-icon-wrap">
+                        <span class="scard-icon">🏺</span>
+                    </div>
+                    <h2>Speciale Was & Antiek</h2>
+                    <p>Heeft u vergeelde antieke lakens of erfstukken? Wij zijn specialisten in het <strong>stralend wit krijgen</strong> van oud textiel. Wij stijven uw linnen nog op authentieke wijze.</p>
+                    <span class="scard-tag">Delicaat · Specialistisch · Authentiek</span>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-band reveal">
+                <div class="chip">Specifieke wensen?</div>
+                <h2 class="heading-md" style="margin-bottom:14px;">Neem contact op voor maatwerk</h2>
+                <p>Heeft u een grote partij wasgoed of bijzonder textiel dat speciale aandacht nodig heeft? Wij denken graag mee.</p>
+                <a href="contact.html" class="btn btn-blue btn-lg" style="margin-top:34px;">Vraag een offerte aan <span class="btn-arrow">→</span></a>
             </div>
         </section>
+
     </main>
 
-    <!-- PLAK HIER FOOTER.HTML COMPONENT -->
-    <footer>
-        <!-- Zie index.html voor footer structuur -->
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="components.js"></script>
+    <script>
+        loadComponents('diensten');
+    </script>
 </body>
 </html>

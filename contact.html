@@ -3,90 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Wasserij de Waslijn</title>
+    <title>Contact | Wasserij de Waslijn Maassluis</title>
+    <meta name="description" content="Neem contact op met Wasserij de Waslijn. Bel 010 591 2440 of mail info@wasserijdewaslijn.nl. Wagenstraat 21, Maassluis.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Component -->
-    <header>
-        <a href="index.html">
-            <img src="assets/logo.png" alt="Wasserij de Waslijn Logo" class="logo">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="diensten.html">Diensten</a></li>
-                <li><a href="contact.html" style="color:var(--primary-blue)">Contact</a></li>
-            </ul>
-            <span class="lang-flag">🇳🇱</span>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main>
-        <section>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2 style="font-size: 2.5rem;">Laten we praten</h2>
-                    <p>Heeft u een vraag over een specifieke vlek, grote partijen wasgoed of onze prijzen? Wij staan u graag te woord.</p>
-                    
-                    <div style="margin-top: 40px;">
-                        <p><strong>📍 Adres:</strong> Wagenstraat 21, 3142 CR Maassluis</p>
-                        <p><strong>📞 Telefoon:</strong> 010 591 2440</p>
-                        <p><strong>✉️ E-mail:</strong> info@wasserijdewaslijn.nl</p>
+
+        <!-- ── PAGE HERO ── -->
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <div class="chip">Bereikbaar & Behulpzaam</div>
+                <h1 class="heading-xl">Laten we<br>kennismaken</h1>
+                <p class="subtext">Heeft u een vraag over een vlek, grote partijen wasgoed of onze prijzen? Wij staan u graag te woord.</p>
+            </div>
+        </div>
+
+        <!-- ── CONTACT LAYOUT ── -->
+        <section class="section">
+            <div class="contact-layout">
+
+                <!-- LEFT: info + map -->
+                <div class="reveal">
+                    <div class="contact-details">
+                        <a href="https://maps.google.com/?q=Wagenstraat+21+3142+CR+Maassluis" target="_blank" rel="noopener" class="cdetail">
+                            <div class="cdetail-icon">📍</div>
+                            <div class="cdetail-body">
+                                <strong>Adres</strong>
+                                <span>Wagenstraat 21, 3142 CR Maassluis</span>
+                            </div>
+                        </a>
+                        <a href="tel:0105912440" class="cdetail">
+                            <div class="cdetail-icon">📞</div>
+                            <div class="cdetail-body">
+                                <strong>Telefoon</strong>
+                                <span>010 591 2440</span>
+                            </div>
+                        </a>
+                        <a href="mailto:info@wasserijdewaslijn.nl" class="cdetail">
+                            <div class="cdetail-icon">✉️</div>
+                            <div class="cdetail-body">
+                                <strong>E-mail</strong>
+                                <span>info@wasserijdewaslijn.nl</span>
+                            </div>
+                        </a>
+                        <div class="cdetail" style="cursor:default;">
+                            <div class="cdetail-icon">🕐</div>
+                            <div class="cdetail-body">
+                                <strong>Openingstijden</strong>
+                                <span>Ma – Vr: 08:30 – 17:30 &nbsp;·&nbsp; Weekend: Gesloten</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- GEOPTIMALISEERDE GOOGLE MAPS -->
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d2462.1523456789!2d4.2515!3d51.9123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c449272338f01f%3A0x6b772c676757b32c!2sWagenstraat%2021%2C%203142%20CR%20Maassluis!5e0!3m2!1snl!2snl!4v1711350000000!5m2!1snl!2snl" 
-                            allowfullscreen="" 
-                            loading="lazy" 
+                    <!-- GOOGLE MAPS — echte embed met juist adres -->
+                    <div class="map-wrap">
+                        <iframe
+                            title="Locatie Wasserij de Waslijn"
+                            src="https://maps.google.com/maps?q=Wagenstraat+21,+3142+CR+Maassluis,+Netherlands&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen
+                            loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <form action="#" method="POST">
-                        <div class="form-group">
+                <!-- RIGHT: form -->
+                <div class="form-card reveal" style="transition-delay:0.15s;">
+                    <h3>Stuur een bericht</h3>
+                    <p>We reageren doorgaans binnen één werkdag.</p>
+
+                    <form id="contact-form" novalidate>
+                        <div class="fgroup">
                             <label for="name">Naam</label>
-                            <input type="text" id="name" name="name" required placeholder="Uw naam">
+                            <input type="text" id="name" name="name" placeholder="Uw volledige naam" required>
                         </div>
-                        <div class="form-group">
+                        <div class="fgroup">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required placeholder="uw@email.nl">
+                            <input type="email" id="email" name="email" placeholder="uw@email.nl" required>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Telefoon</label>
-                            <input type="tel" id="phone" name="phone" placeholder="06 12345678">
+                        <div class="fgroup">
+                            <label for="phone">Telefoon <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">(optioneel)</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
                         </div>
-                        <div class="form-group">
+                        <div class="fgroup">
                             <label for="message">Bericht</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Waar kunnen we u mee helpen?"></textarea>
+                            <textarea id="message" name="message" placeholder="Waar kunnen wij u mee helpen?" required></textarea>
                         </div>
-                        <div style="display:none;">
-                            <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+
+                        <!-- Honeypot anti-spam -->
+                        <div style="display:none;" aria-hidden="true">
+                            <input type="text" name="hp" tabindex="-1" autocomplete="off">
                         </div>
-                        <button type="submit" class="btn" style="width: 100%;">Verstuur Bericht</button>
+
+                        <button type="submit" class="btn btn-blue btn-lg" style="width:100%;justify-content:center;margin-top:8px;">
+                            Verstuur bericht <span class="btn-arrow">→</span>
+                        </button>
                     </form>
+
+                    <!-- Success state (hidden by default) -->
+                    <div id="form-success" style="display:none;text-align:center;padding:40px 0;">
+                        <div style="font-size:3rem;margin-bottom:16px;">✅</div>
+                        <h3 style="font-size:1.3rem;margin-bottom:10px;">Bericht verstuurd!</h3>
+                        <p style="color:var(--muted);font-size:0.93rem;">Wij nemen zo snel mogelijk contact met u op.</p>
+                    </div>
                 </div>
+
             </div>
         </section>
+
     </main>
 
-    <!-- Footer Component -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-section">
-                <img src="assets/logo.png" alt="Wasserij de Waslijn Logo" class="logo" style="margin-bottom: 20px;">
-                <p>Professioneel wassen en strijken in Maassluis.</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 Wasserij de Waslijn.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="components.js"></script>
+    <script>
+        loadComponents('contact');
+
+        // Form feedback
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Replace with your actual form handler (Formspree, Netlify Forms, etc.)
+            this.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
