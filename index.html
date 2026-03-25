@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wasserij de Waslijn Maassluis | Snel & Betaalbaar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -15,37 +16,41 @@
         </a>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="diensten.html">Diensten</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="diensten.html"><i class="fa-solid fa-shirt"></i> Diensten</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
-            <span class="lang-flag" title="Nederlands">🇳🇱</span>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Frisgewassen, Zo Geregeld</h1>
-            <p>De meest betrouwbare wasserij in Maassluis voor al uw kleding, bedrijfstextiel en strijkwerk.</p>
-            <a href="contact.html" class="btn btn-light">Vandaag nog uw was brengen</a>
+            <div class="reveal reveal-up">
+                <h1>Frisgewassen, Zo Geregeld</h1>
+                <p>De meest betrouwbare wasserij in Maassluis voor al uw kleding, bedrijfstextiel en strijkwerk.</p>
+                <a href="contact.html" class="btn btn-light">Vandaag nog uw was brengen</a>
+            </div>
         </section>
 
         <section>
-            <div style="text-align: center; max-width: 900px; margin: 0 auto 60px;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Onze Belofte</h2>
+            <div class="section-header reveal reveal-up">
+                <h2>Onze Belofte</h2>
                 <p>Bij Wasserij de Waslijn draait alles om kwaliteit en gemak. Wij zorgen ervoor dat uw wasgoed niet alleen schoon wordt, maar ook met de grootste zorg wordt behandeld.</p>
             </div>
 
             <div class="grid">
-                <div class="card">
+                <div class="card reveal reveal-left">
+                    <div class="card-icon"><i class="fa-solid fa-face-smile"></i></div>
                     <h3>Vriendelijk & Persoonlijk</h3>
                     <p>Onze klanten komen terug voor de glimlach en de uitstekende service die we elke dag bieden.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal reveal-up">
+                    <div class="card-icon"><i class="fa-solid fa-tags"></i></div>
                     <h3>Zeer Voordelig</h3>
                     <p>Wij houden onze prijzen laag, zodat professionele reiniging voor iedereen in Maassluis toegankelijk is.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal reveal-right">
+                    <div class="card-icon"><i class="fa-solid fa-award"></i></div>
                     <h3>Topkwaliteit</h3>
                     <p>Of het nu gaat om een overhemd of antiek linnen, wij garanderen een stralend resultaat.</p>
                 </div>
@@ -56,18 +61,18 @@
     <!-- Footer Component -->
     <footer>
         <div class="footer-grid">
-            <div class="footer-section">
+            <div class="footer-section reveal reveal-left">
                 <img src="assets/logo.png" alt="Wasserij de Waslijn Logo" class="logo" style="margin-bottom: 20px;">
                 <p>Uw partner in schoon textiel. Gevestigd in het hart van Maassluis.</p>
             </div>
-            <div class="footer-section">
-                <h4>Contactgegevens</h4>
+            <div class="footer-section reveal reveal-up">
+                <h4><i class="fa-solid fa-location-dot"></i> Contactgegevens</h4>
                 <p>Wagenstraat 21, Maassluis</p>
                 <p>Tel: 010 591 2440</p>
                 <p>info@wasserijdewaslijn.nl</p>
             </div>
-            <div class="footer-section">
-                <h4>Openingstijden</h4>
+            <div class="footer-section reveal reveal-right">
+                <h4><i class="fa-solid fa-clock"></i> Openingstijden</h4>
                 <p>Ma t/m Vr: 08:30 - 17:30</p>
                 <p>Weekend: Gesloten</p>
             </div>
@@ -77,5 +82,6 @@
         </div>
     </footer>
 
+    <script src="animations.js"></script>
 </body>
 </html>
