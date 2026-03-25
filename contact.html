@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Wasserij de Waslijn Maassluis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PLAK HIER HEADER.HTML COMPONENT -->
+    <header>
+        <a href="index.html">
+            <img src="assets/logo.png" alt="Wasserij de Waslijn Logo" class="logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="diensten.html">Diensten</a></li>
+                <li><a href="contact.html" style="color: var(--primary-blue);">Contact</a></li>
+                <li class="lang-flag">🇳🇱</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h1>Neem contact op</h1>
+                    <p>Heeft u vragen over onze prijzen of wilt u weten of uw wasgoed vandaag nog klaar kan zijn? Bel ons direct of vul het formulier in.</p>
+                    
+                    <div class="contact-details" style="margin-top: 30px;">
+                        <p><strong>Adres:</strong> Wagenstraat 21, 3142 CR Maassluis</p>
+                        <p><strong>Telefoon:</strong> 010 591 2440</p>
+                        <p><strong>E-mail:</strong> info@wasserijdewaslijn.nl</p>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d2462.146524317424!2d4.25143327689163!3d51.91230488053421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c449272338f01f%3A0x6b772c676757b32c!2sWagenstraat%2021%2C%203142%20CR%20Maassluis!5e0!3m2!1snl!2snl!4v1710000000000!5m2!1snl!2snl" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" required placeholder="Uw volledige naam">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mailadres</label>
+                            <input type="email" id="email" name="email" required placeholder="uw@email.nl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefoonnummer</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12345678">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Bericht</label>
+                            <textarea id="message" name="message" required placeholder="Waarmee kunnen we u helpen?"></textarea>
+                        </div>
+
+                        <!-- Honeypot Anti-Spam (Verborgen voor gebruikers) -->
+                        <div style="display:none;">
+                            <label>Laat dit veld leeg:</label>
+                            <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn">Verstuur bericht</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PLAK HIER FOOTER.HTML COMPONENT -->
+    <footer>
+        <!-- Zie index.html voor footer structuur -->
+    </footer>
+
+</body>
+</html>
