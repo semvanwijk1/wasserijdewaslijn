@@ -1,41 +1,68 @@
 /**
  * components.js
- * Laadt components/header.html en components/footer.html
- * dynamisch in elke pagina.
- * Gebruik: loadComponents('index' | 'diensten' | 'contact')
+ * Waterdicht pad-systeem voor GitHub Pages in een submap.
+ * Werkt ook met hoofdlettergevoelige mapnamen (Components vs components).
  */
 async function loadComponents(activePage) {
 
-    // ── Laad header ──────────────────────────────────────────
-    try {
-        const hRes = await fetch('./components/header.html');
-        const hHTML = await hRes.text();
-        document.getElementById('header-placeholder').innerHTML = hHTML;
+    // ── Bepaal de root van het project dynamisch ─────────────
+    // window.location.pathname = bijv. /wasserijdewaslijn/diensten.html
+    // We pakken het pad tot en met de submap, ongeacht bestandsnaam.
+    const scriptTag = document.querySelector('script[src*="components.js"]');
+    const scriptSrc = scriptTag ? scriptTag.getAttribute('src') : 'components.js';
+
+    // Bepaal de base: map waar components.js in staat (= root van project)
+    const base = scriptSrc.includes('/')
+        ? scriptSrc.substring(0, scriptSrc.lastIndexOf('/') + 1)
+        : '';
+
+    // Probeer beide hoofdletter-varianten van de map
+    const folderVariants = ['Components', 'components'];
+
+    const headerHTML = await fetchFirstMatch(base, folderVariants, 'header.html');
+    const footerHTML = await fetchFirstMatch(base, folderVariants, 'footer.html');
+
+    // ── Injecteren ───────────────────────────────────────────
+    if (headerHTML) {
+        document.getElementById('header-placeholder').innerHTML = headerHTML;
         setActiveNav(activePage);
         initHeader();
-    } catch (e) {
-        console.error('Kon ./components/header.html niet laden:', e);
+    } else {
+        console.error('header.html kon niet worden gevonden in Components/ of components/');
     }
 
-    // ── Laad footer ──────────────────────────────────────────
-    try {
-        const fRes = await fetch('./components/footer.html');
-        const fHTML = await fRes.text();
-        document.getElementById('footer-placeholder').innerHTML = fHTML;
-    } catch (e) {
-        console.error('Kon ./components/footer.html niet laden:', e);
+    if (footerHTML) {
+        document.getElementById('footer-placeholder').innerHTML = footerHTML;
+    } else {
+        console.error('footer.html kon niet worden gevonden in Components/ of components/');
     }
 
-    // ── Scroll reveal initialiseren ──────────────────────────
+    // ── Scroll reveal ────────────────────────────────────────
     initReveal();
+}
+
+/**
+ * Probeert meerdere mapvarianten totdat één succesvol laadt.
+ * Geeft de HTML-tekst terug, of null als niets werkt.
+ */
+async function fetchFirstMatch(base, folders, filename) {
+    for (const folder of folders) {
+        const url = `${base}${folder}/${filename}`;
+        try {
+            const res = await fetch(url);
+            if (res.ok) return await res.text();
+        } catch (_) {
+            // Probeer volgende variant
+        }
+    }
+    return null;
 }
 
 /**
  * Markeert de actieve navigatielink op basis van de paginanaam.
  */
 function setActiveNav(page) {
-    const links = document.querySelectorAll('#nav-menu a[data-page]');
-    links.forEach(link => {
+    document.querySelectorAll('#nav-menu a[data-page]').forEach(link => {
         link.classList.toggle('active', link.dataset.page === page);
     });
 }
@@ -50,20 +77,17 @@ function initHeader() {
 
     if (!header || !burger || !menu) return;
 
-    // Schaduw bij scrollen
     const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Hamburger toggle
     burger.addEventListener('click', () => {
         const open = menu.classList.toggle('open');
         burger.classList.toggle('open', open);
-        burger.setAttribute('aria-expanded', open);
+        burger.setAttribute('aria-expanded', String(open));
         document.body.style.overflow = open ? 'hidden' : '';
     });
 
-    // Sluit menu bij klik op nav-link
     menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('open');
@@ -73,7 +97,6 @@ function initHeader() {
         });
     });
 
-    // Sluit menu bij klik buiten header
     document.addEventListener('click', (e) => {
         if (!header.contains(e.target) && menu.classList.contains('open')) {
             menu.classList.remove('open');
@@ -86,7 +109,6 @@ function initHeader() {
 
 /**
  * Scroll-reveal via IntersectionObserver.
- * Werkt voor .reveal en .reveal-stagger elementen.
  */
 function initReveal() {
     const observer = new IntersectionObserver((entries) => {
