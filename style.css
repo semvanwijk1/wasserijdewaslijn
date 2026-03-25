@@ -1,18 +1,18 @@
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+/* Google Fonts - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
-/* CSS Variabelen */
 :root {
     --primary-blue: #0056b3;
     --dark-blue: #003d80;
-    --light-blue: #eef6ff;
-    --text-dark: #333333;
-    --text-light: #666666;
+    --accent-blue: #00aaff;
+    --light-blue: #f4f9ff;
     --white: #ffffff;
-    --transition: all 0.3s ease;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset & Basis */
 * {
     margin: 0;
     padding: 0;
@@ -21,51 +21,50 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    color: var(--text-main);
     line-height: 1.6;
-    color: var(--text-dark);
     background-color: var(--white);
-    overflow-x: hidden;
 }
 
-/* Layout - Full Width */
-section {
-    width: 100%;
-    padding: 60px 5%;
-}
-
-/* Header & Navigatie */
+/* --- HEADER (Hoger gemaakt) --- */
 header {
     background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 25px 5%; /* Verhoogd voor meer hoogte */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .logo {
-    height: 60px;
+    height: 65px; /* Iets groter voor balans */
     width: auto;
+    display: block;
 }
 
-nav ul {
+nav {
     display: flex;
-    list-style: none;
     align-items: center;
 }
 
-nav ul li {
-    margin-left: 30px;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin-right: 25px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--text-main);
     font-weight: 600;
+    font-size: 0.95rem;
     transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 nav ul li a:hover {
@@ -73,179 +72,200 @@ nav ul li a:hover {
 }
 
 .lang-flag {
-    font-size: 1.2rem;
-    margin-left: 20px;
-}
-
-/* Knoppen */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: var(--primary-blue);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: var(--transition);
-    border: none;
+    font-size: 1.5rem;
     cursor: pointer;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
 }
 
-.btn:hover {
-    background-color: var(--dark-blue);
-    transform: translateY(-2px);
+/* --- SECTIES --- */
+section {
+    padding: 100px 5%;
+    width: 100%;
 }
 
-/* Hero Sectie */
+/* --- HERO --- */
 .hero {
-    background: linear-gradient(rgba(0,86,179,0.7), rgba(0,86,179,0.7)), url('https://images.unsplash.com/photo-1545173153-5dd9a739a155?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-    height: 60vh;
+    background: linear-gradient(rgba(0, 61, 128, 0.75), rgba(0, 86, 179, 0.75)), 
+                url('https://images.unsplash.com/photo-1545173153-5dd9a739a155?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    min-height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: var(--white);
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin-bottom: 30px;
+    font-size: 1.3rem;
+    max-width: 850px;
+    margin-bottom: 40px;
 }
 
-/* Diensten Kaarten */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.service-card {
-    background: var(--light-blue);
-    padding: 40px;
-    border-radius: 10px;
+/* --- MODERNE KNOPPEN (Interactief) --- */
+.btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px; /* Mooie ronde vorm */
     transition: var(--transition);
-    border-bottom: 5px solid transparent;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.service-card:hover {
+.btn:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+}
+
+/* De 'Klik' animatie */
+.btn:active {
+    transform: translateY(1px) scale(0.96);
+    box-shadow: 0 2px 10px rgba(0, 86, 179, 0.2);
+}
+
+.btn-light {
+    background-color: var(--white);
+    color: var(--primary-blue);
+}
+
+/* --- DIENSTEN GRID --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: var(--light-blue);
+    padding: 50px;
+    border-radius: 15px;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.card:hover {
+    background: var(--white);
+    box-shadow: var(--shadow);
     transform: translateY(-10px);
-    border-bottom: 5px solid var(--primary-blue);
 }
 
-.service-card h3 {
+.card h3 {
     color: var(--primary-blue);
     margin-bottom: 15px;
+    font-size: 1.6rem;
 }
 
-/* Contact Sectie */
-.contact-container {
+/* --- CONTACT & MAPS --- */
+.contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 80px;
+    align-items: start;
 }
 
-.contact-info h2 {
-    margin-bottom: 20px;
+/* Google Maps Fix */
+.map-container {
+    margin-top: 30px;
+    width: 100%;
+    height: 450px; /* Royaler formaat */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 5px solid var(--white);
 }
 
-.contact-details {
-    margin-bottom: 30px;
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-.contact-details p {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-/* Formulier */
-form {
-    display: flex;
-    flex-direction: column;
+/* FORMULIER */
+.contact-form {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-label {
+.form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-weight: 600;
+    color: var(--primary-blue);
 }
 
-input, textarea {
+.form-group input, 
+.form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    border: 2px solid #edf2f7;
+    border-radius: 8px;
     font-family: inherit;
+    transition: var(--transition);
 }
 
-textarea {
-    height: 150px;
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background-color: #fff;
 }
 
-/* Footer */
+/* --- FOOTER --- */
 footer {
     background-color: var(--light-blue);
-    padding: 50px 5% 20px;
-    border-top: 1px solid #e0e0e0;
+    padding: 80px 5% 30px;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    margin-bottom: 50px;
 }
 
-.footer-section {
-    flex: 1;
-    min-width: 250px;
-    margin-bottom: 20px;
+.footer-section h4 {
+    margin-bottom: 25px;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
 }
 
-.footer-bottom {
+.copyright {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-
-/* Google Maps */
-.map-container {
-    width: 100%;
-    height: 400px;
-    margin-top: 30px;
-    border-radius: 10px;
-    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 30px;
+    color: var(--text-muted);
 }
 
 /* Responsiviteit */
+@media (max-width: 992px) {
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.8rem; }
+}
+
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-    nav ul {
-        margin-top: 20px;
-    }
-    nav ul li {
-        margin: 0 10px;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
+    header { flex-direction: column; padding: 30px; }
+    nav ul { margin: 25px 0; flex-wrap: wrap; justify-content: center; }
 }
