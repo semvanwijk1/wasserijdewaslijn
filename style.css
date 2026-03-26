@@ -407,6 +407,8 @@ footer {
 
 /* Zoek in style.css naar de pcard-icon sectie en vervang deze twee blokken: */
 
+/* Zoek dit op in style.css en vervang het voor de strakke look: */
+
 .pcard-icon {
     width: 58px;
     height: 58px;
@@ -417,13 +419,20 @@ footer {
     justify-content: center;
     font-size: 26px;
     margin-bottom: 24px;
-    transition: transform 0.3s var(--ease), background 0.3s; /* Veranderd van spring naar ease voor stabiliteit */
+    transition: transform 0.3s ease, background 0.3s;
 }
 
 .pcard:hover .pcard-icon {
-    transform: translateY(-5px); /* Alleen een subtiele beweging omhoog, geen rotatie meer */
+    transform: translateY(-6px); /* Alleen een nette lift omhoog */
     background: var(--blue);
-    color: white; /* Zorgt dat het icoontje (indien tekst/emoji) goed leesbaar blijft */
+}
+
+/* De icoontjes op de diensten pagina ook fixen */
+.scard:hover .scard-icon-wrap {
+    transform: translateY(-6px);
+}
+.scard:hover .scard-icon {
+    animation: none; /* Stopt het wiebelen wat soms vervormt */
 }
 
 /* Verwijder eventuele 'filter: brightness(10)' regels bij .pcard:hover .pcard-icon .icon-inner */
