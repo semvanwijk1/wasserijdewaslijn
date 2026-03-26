@@ -405,23 +405,28 @@ footer {
 .pcard:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: transparent; }
 .pcard:hover::after { transform: scaleX(1); }
 
+/* Zoek in style.css naar de pcard-icon sectie en vervang deze twee blokken: */
+
 .pcard-icon {
-    width: 58px; height: 58px;
+    width: 58px;
+    height: 58px;
     background: var(--blue-lt);
     border-radius: var(--r-md);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 26px;
     margin-bottom: 24px;
-    transition: transform 0.4s var(--spring), background 0.3s;
+    transition: transform 0.3s var(--ease), background 0.3s; /* Veranderd van spring naar ease voor stabiliteit */
 }
-.pcard:hover .pcard-icon { transform: rotate(-8deg) scale(1.1); background: var(--blue); }
-.pcard:hover .pcard-icon .icon-inner { filter: grayscale(0) brightness(10); }
 
-.pcard h3 {
-    font-size: 1.15rem; font-weight: 700;
-    margin-bottom: 12px; color: var(--text);
+.pcard:hover .pcard-icon {
+    transform: translateY(-5px); /* Alleen een subtiele beweging omhoog, geen rotatie meer */
+    background: var(--blue);
+    color: white; /* Zorgt dat het icoontje (indien tekst/emoji) goed leesbaar blijft */
 }
-.pcard p { font-size: 0.93rem; color: var(--muted); line-height: 1.75; }
+
+/* Verwijder eventuele 'filter: brightness(10)' regels bij .pcard:hover .pcard-icon .icon-inner */
 
 /* ═══════════════════════════════════════════════
    PAGE HERO (inner pages)
